@@ -1,21 +1,5 @@
-''' 
-Tool to extract word counts
+#Tool to extract word counts
 
-Command line usage: 
-
-python vocab_count.py /path/corpus_folder --nproc 8 --unigrams 60000 --bigrams 100000 --contexts 10000
-
- Where :
- 
- /path/corpus_folder - Folder containing corpus file(s) 
---unigrams 60000 - top n(60000) most frequent unigrams ( nouns and adjectives )
---bigrams 100000 - top n(100000) most frequent bigrams ( adjective noun compounds )
---contexts 10000 - top n(10000) most frequent context words 
-
-Download link ( ukwac corpus location )
-/home/anupama/tensor/corpus/ukwac/chunks
-
-'''
 
 import sys
 import os
