@@ -1,22 +1,6 @@
 '''
 Constructs unigram(main) and bigram(peripheral) semantic space from the coooccurence counts by applying the following operations :
 PPMI -> Normalization -> SVD(300) {Dissect Toolkit is used}
-
-Command line usage :
-1. create a unigram semantic space -
-   python semantic_space.py unigram_space /home/path/contexts_vocab.txt /home/path/unigrams_vocab.txt /path/unigrams_cooccur.txt
-   
-2. create a bigram semantic space - 
-   python semantic_space.py bigram_space /home/path/contexts_vocab.txt /home/path/unigrams_space.pkl /path/bigrams_cooccur.txt
-   
-   
-File download Links :
-
-unigrams_vocab.txt - /home/anupama/dict/unigrams_vocab.txt
-unigrams_cooccur.txt - /home/anupama/dict/unigrams_cooccur.txt
-bigrams_vocab.txt - /home/anupama/dict/bigrams_vocab.txt
-bigrams_cooccur.txt - /home/anupama/dict/bigrams_cooccur.txt
-
 '''
 
 
