@@ -37,7 +37,7 @@ def save_space(space, space_type) :
 	if not os.path.exists(outfile_location):
     		os.makedirs(outfile_location)
 	
-	outfilename = outfile_location + "/"+ instance_type + ".pkl" 
+	outfilename = outfile_location + "/"+ space_type + ".pkl" 
 	io_utils.save(space, outfilename) 
 
 #Create unigram space by applying PPMI->Norm->SVD
