@@ -6,7 +6,9 @@ To train the lexical functions,the corpus can be prepared as a text file(s), wit
 The demo script implements the entire pipeline on a given [corpus] (https://github.com/anupama-gupta/Composition/blob/Space/corpus_links.txt)
 
 Usage :
-
+    
+    $ git clone https://github.com/anupama-gupta/AN_Composition
+    $ cd AN_Composition
     $ ./demo.sh /path/corpus
 
 
