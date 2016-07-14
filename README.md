@@ -3,7 +3,7 @@ To train the lexical functions,the corpus can be prepared as a text file(s), wit
 
 # Demo
 
-The demo script implements the entire pipeline on a given [corpus] (https://github.com/anupama-gupta/AN_Composition/
+The demo script implements the entire pipeline on a given [corpus] (https://github.com/anupama-gupta/AN_Composition/blob/master/
 corpus_links.txt)
 
 Usage :
