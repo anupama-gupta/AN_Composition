@@ -1,0 +1,14 @@
+i/pp have/vhp forget/vvn my/pp username/np and/np or/cc password/nn
+
+however/rb we/pp still/rb have/vhp some/dt concern/nns especially/rb over/in pension/nn scheme/nn funding/nn measure/nns
+
+for/in the/dt accounting/nn chain/nn no/dt policy/nn should/md be/vb specify/vvn
+
+give/vv a/dt currently/rb very/rb brief/jj description/nn of/in the/dt command/nn syntax/nn
+
+under/in authentication/np configuration/np just/rb go/vv with/in the/dt default/nn shadow/np passwords/np
+
+
+
+
+
