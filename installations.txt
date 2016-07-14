@@ -1,0 +1,8 @@
+#Dissect Toolkit
+http://clic.cimec.unitn.it/composes/toolkit/installation.html
+
+#Gensim package
+https://radimrehurek.com/gensim/install.html
+
+#Scikit-learn
+http://scikit-learn.org/stable/install.html

@@ -1,0 +1,29 @@
+
+
+#contexts vocab file
+/home/anupama/dict/contexts_vocab.txt
+
+#unigrams vocab file
+/home/anupama/dict/unigrams_vocab.txt
+
+#bigram vocab file
+/home/anupama/dict/bigrams_vocab.txt
+
+#unigrams space 
+/home/anupama/space/unigrams_space.pkl
+
+#bigrams space 
+/home/anupama/space/bigrams_space.pkl
+
+#adjective  matrices 
+/home/anupama/matrices/ADJ_matrices.pkl
+
+#tensor matrix 
+/home/anupama/matrices/TENSOR_matrix.pkl
+
+#composed space using adjectives matrices 
+/home/anupama/composed_space/composed_space_ADJ.pkl
+
+#composed space using tensor matrix 
+/home/anupama/composed_space/composed_space_TENSOR.pkl
+

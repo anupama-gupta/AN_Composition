@@ -1,0 +1,5 @@
+# ukwac snippet location ( 673 MB )
+/home/anupama/ukwac_snippet
+
+#ukwac corpus location ( 16 GB )
+/home/anupama/tensor/corpus/ukwac/chunks
