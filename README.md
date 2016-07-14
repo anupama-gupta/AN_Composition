@@ -1,9 +1,9 @@
 # About
-To train the lexical functions,the corpus can be prepared as a text file(s), with one sentence per line. The punctuations and numbers are removed and the words are preprocessed (lemmatized). The sentence tokens are pos-tagged (Stanford PosTagger(http://nlp.stanford.edu/software/tagger.shtml) can be used ) and separated by a single space. 
+To train the lexical functions,the corpus can be prepared as a text file(s), with one sentence per line. The punctuations and numbers are removed and the words are preprocessed (lemmatized). The sentence tokens are pos-tagged (Stanford PosTagger(http://nlp.stanford.edu/software/tagger.shtml) can be used ) and separated by a single space. [Here] (https://github.com/anupama-gupta/AN_Composition/blob/master/sample_sentences.txt) are few sample sentences.
 
 # Demo
 
-The demo script implements the entire pipeline on a given [corpus] (https://github.com/anupama-gupta/Composition/blob/Space/corpus_links.txt)
+The demo script implements the entire pipeline on a given [corpus] (https://github.com/anupama-gupta/AN_Composition/blob/Space/corpus_links.txt)
 
 Usage :
     
@@ -34,11 +34,11 @@ c3 : most frequent context words
 
 output files :
 
-1. [/dict/unigrams_vocab.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+1. [/dict/unigrams_vocab.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-2. [/dict/bigrams_vocab.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+2. [/dict/bigrams_vocab.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-3. [/dict/contexts_vocab.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+3. [/dict/contexts_vocab.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 
 ### 2) cooccur
@@ -50,17 +50,17 @@ Constructs cooccurrence counts (unigram-context or bigram-context) from the corp
 
 where :
 
-file1 - [/dict/contexts_vocab.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file1 - [/dict/contexts_vocab.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file2 - [/dict/unigrams_vocab.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file2 - [/dict/unigrams_vocab.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file3 - [/dict/bigrams_vocab.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file3 - [/dict/bigrams_vocab.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output files :
 
-1. [/dict/unigrams_cooccur.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+1. [/dict/unigrams_cooccur.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-2. [/dict/bigrams_cooccur.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+2. [/dict/bigrams_cooccur.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 ### 3) semantic_space
 Constructs a vector space from the cooccurence counts obtained from 'cooccur'. The vectors are weighted using positive point-wise mutual information (ppmi), normalized to unit length and then reduced to 300 dimensions using singular value decomposition(svd).
@@ -71,15 +71,15 @@ Constructs a vector space from the cooccurence counts obtained from 'cooccur'. T
 
 where :
 
-file1 - [/dict/contexts_vocab.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file1 - [/dict/contexts_vocab.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file2 - [/dict/unigrams_vocab.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file2 - [/dict/unigrams_vocab.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file3 - [/dict/unigrams_cooccur.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file3 - [/dict/unigrams_cooccur.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output file :
 
-[/space/unigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+[/space/unigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 ####b. To create bigrams semantic space:
 
@@ -87,15 +87,15 @@ output file :
 
 where :
 
-file1 - [/dict/contexts_vocab.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file1 - [/dict/contexts_vocab.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file2 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file2 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file3 - [/dict/bigrams_cooccur.txt] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file3 - [/dict/bigrams_cooccur.txt] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output file :
 
-[/space/bigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+[/space/bigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 ### 4) lexical_functions
 
@@ -109,13 +109,13 @@ This tool performs the following 3 tasks :
     
 where :
 
-file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output file :
 
-[/matrices/ADJ_matrices.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+[/matrices/ADJ_matrices.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 ##### b. To learn tensor matrix :
 
@@ -123,13 +123,13 @@ output file :
     
 where :
 
-file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output file :
 
-[/matrices/TENSOR_matrix.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+[/matrices/TENSOR_matrix.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 #### 2. Creates a new semantic space (new composed vectors consructed using lexical functions)
 
@@ -139,15 +139,15 @@ output file :
     
 where :
 
-file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file3 - [/matrices/ADJ_matrices.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file3 - [/matrices/ADJ_matrices.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output file :
 
-[/composed_space/composed_space_ADJ.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+[/composed_space/composed_space_ADJ.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 ##### b. To create new space using tensor matrix  :
 
@@ -155,15 +155,15 @@ output file :
 
 where :
 
-file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
-file3 - [/matrices/TENSOR_matrix.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file3 - [/matrices/TENSOR_matrix.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output file :
 
-[/composed_space/composed_space_TENSOR.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+[/composed_space/composed_space_TENSOR.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
    
 #### 3. Finds nearest neighbours (Lists n nearest neighbours of a compound in a given semantic space )
@@ -176,11 +176,11 @@ where :
 
 compound - eg : good_boy, old_tree, young_actor etc.
 
-file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 file2 - a [semantic space file] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt) ( in /space or in /composed_space ). This is the space where the neighbours will be searched for.
 
-file3 - [/matrices/ADJ_matrices.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file3 - [/matrices/ADJ_matrices.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output :
 
@@ -195,11 +195,11 @@ where :
 
 compound - eg : good_boy, old_tree, young_actor etc.
 
-file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file1 - [/space/unigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 file2 - a [semantic space file] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)( in /space or in /composed_space ). This is the space where the neighbours will be searched for.
 
-file3 - [/matrices/TENSOR_matrix.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file3 - [/matrices/TENSOR_matrix.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output :
 
@@ -213,7 +213,7 @@ where :
     
 file1 - a [semantic space ] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt) ( in /space or in /composed_space ). This is the space where the neighbours will be searched for.
 
-file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/Composition/blob/Space/file_links.txt)
+file2 - [/space/bigrams_space.pkl] (https://github.com/anupama-gupta/AN_Composition/blob/Space/file_links.txt)
 
 output :
 
