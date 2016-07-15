@@ -172,6 +172,9 @@ def compose_space_TENSOR (  ) :
 		
 		adj = bigram.split('_')[0]
 		noun = bigram.split('_')[1]
+		
+		if( not adj in adj_list ) :
+			continue
 	
 		predicted_bigrams.append(("predicted_ADJ_"+adj, noun, "predicted_"+bigram) )
 		# eg ( "predicted_ADJ_good", "boy" , "predict_good_boy" ) 
