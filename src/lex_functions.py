@@ -135,7 +135,9 @@ def compose_space_ADJ (  ) :
 	for bigram in bigram_space.id2row :
 		
 		adj = bigram.split('_')[0]
-		noun = bigram.split('_')[1]	
+		noun = bigram.split('_')[1]
+		if( "ADJ_"+adj not in  ADJ_matrices.function_space.id2row ) :
+			continue
 		predicted_bigrams.append(("ADJ_"+adj, noun, "predicted_"+bigram) )
 		# eg : ( "ADJ_good", "boy", "predicted_good_boy")
 		# ADJ_good -> adjective matrix , boy -> unigram, predicted_good_boy -> to compute ( using : ADJ_good * boy )
@@ -230,7 +232,7 @@ def neighbours_ADJ(  ) :
 	ADJ_matrices = load_space(args.function[4])
 
 	adj = compound.split("_")[0]
-	if( "ADJ_"+adj  not in ADJ_matrices.id2row ) :
+	if( "ADJ_"+adj  not in ADJ_matrices.function_space.id2row ) :
 		print adj , " matrix not found ! "
 		return
 	composed_space = predict_using_ADJ ( compound, ADJ_matrices, unigram_space )
