@@ -42,10 +42,10 @@ printf "Compose new compound vectors space using TENSOR matrix"
 python ./src/lex_functions.py TENSOR_space ./space/unigrams_space.pkl ./space/bigrams_space.pkl ./matrices/TENSOR_matrix.pkl 
 
 printf "\nNearest neighbours of a compound (predicted using ADJ matrix )"
-python ./src/lex_functions.py neighbours_ADJ ./space/unigrams_space.pkl old_town ./composed_space/composed_space_ADJ.pkl ./matrices/ADJ_matrices.pkl
+python ./src/lex_functions.py neighbours_ADJ ./space/unigrams_space.pkl small_town ./composed_space/composed_space_ADJ.pkl ./matrices/ADJ_matrices.pkl
 
 printf "\nNearest neighbours of a compound (predicted using TENSOR matrix )"
-python ./src/lex_functions.py neighbours_TENSOR ./space/unigrams_space.pkl old_town ./composed_space/composed_space_TENSOR.pkl ./matrices/TENSOR_matrix.pkl
+python ./src/lex_functions.py neighbours_TENSOR ./space/unigrams_space.pkl small_town ./composed_space/composed_space_TENSOR.pkl ./matrices/TENSOR_matrix.pkl
 
 printf "\nNearest neighbours of compound vectors (obtained from bigram_space)"
-python ./src/lex_functions.py neighbours_bigrams old_town ./space/bigrams_space.pkl ./space/bigrams_space.pkl
+python ./src/lex_functions.py neighbours_bigrams small_town ./space/bigrams_space.pkl ./space/bigrams_space.pkl
