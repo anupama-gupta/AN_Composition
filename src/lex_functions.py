@@ -136,7 +136,7 @@ def compose_space_ADJ (  ) :
 		
 		adj = bigram.split('_')[0]
 		noun = bigram.split('_')[1]
-		if( "ADJ_"+adj not in  ADJ_matrices.function_space.id2row ) :
+		if( "ADJ_"+adj not in  ADJ_matrices.function_space.id2row or noun not in unigram_space.id2row ) :
 			continue
 		predicted_bigrams.append(("ADJ_"+adj, noun, "predicted_"+bigram) )
 		# eg : ( "ADJ_good", "boy", "predicted_good_boy")
@@ -173,7 +173,7 @@ def compose_space_TENSOR (  ) :
 		adj = bigram.split('_')[0]
 		noun = bigram.split('_')[1]
 		
-		if( not adj in adj_list ) :
+		if( not adj in adj_list or noun not in unigram_space.id2row ) :
 			continue
 	
 		predicted_bigrams.append(("predicted_ADJ_"+adj, noun, "predicted_"+bigram) )
