@@ -17,28 +17,28 @@ count_contexts=10000
 context_window=5
 processes=8
 
-printf "Building vocab"
+printf "\nBuilding vocab"
 python ./src/vocab_count.py $corpus_path --unigrams $count_unigrams --bigrams $count_bigrams --contexts $count_contexts --nproc $processes
 
-printf "Building cooccurence counts"
+printf "\nBuilding cooccurence counts"
 python ./src/cooccur.py $corpus_path ./dict/contexts_vocab.txt --unigrams ./dict/unigrams_vocab.txt --bigrams ./dict/bigrams_vocab.txt --nproc $processes
 
-printf "Creating unigrams semantic space : Main space"
+printf "\nCreating unigrams semantic space : Main space"
 python ./src/semantic_space.py unigram_space ./dict/contexts_vocab.txt ./dict/unigrams_vocab.txt ./dict/unigrams_cooccur.txt
 
-printf "Creating bigrams semantic space : Peripheral space" 
+printf "\nCreating bigrams semantic space : Peripheral space" 
 python ./src/semantic_space.py bigram_space ./dict/contexts_vocab.txt ./space/unigrams_space.pkl ./dict/bigrams_cooccur.txt
 
-printf "Learn ADJ matrices" 
+printf "\nLearn ADJ matrices" 
 python ./src/lex_functions.py learn_ADJ ./space/unigrams_space.pkl ./space/bigrams_space.pkl
 
-printf "Learn TENSOR matrix"
+printf "\nLearn TENSOR matrix"
 python ./src/lex_functions.py learn_TENSOR ./space/unigrams_space.pkl ./space/bigrams_space.pkl
 
-printf "Compose new compound vectors space using ADJ matrices"
+printf "\nCompose new compound vectors space using ADJ matrices"
 python ./src/lex_functions.py ADJ_space ./space/unigrams_space.pkl ./space/bigrams_space.pkl ./matrices/ADJ_matrices.pkl
 
-printf "Compose new compound vectors space using TENSOR matrix"
+printf "\nCompose new compound vectors space using TENSOR matrix"
 python ./src/lex_functions.py TENSOR_space ./space/unigrams_space.pkl ./space/bigrams_space.pkl ./matrices/TENSOR_matrix.pkl 
 
 printf "\nNearest neighbours of a compound (predicted using ADJ matrix )"
