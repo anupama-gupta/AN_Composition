@@ -3,7 +3,7 @@ To train the lexical functions,the corpus can be prepared as a text file(s), wit
 
 # Demo
 
-The demo script implements the entire pipeline on a given [corpus] (https://github.com/anupama-gupta/AN_Composition/blob/master/corpus_links.txt)
+The demo script implements the entire pipeline on a given [corpus](https://github.com/anupama-gupta/AN_Composition/blob/master/corpus_links.txt). It collects vocabulary counts, constructs cooccurrence matrix, and creates a semantic space of vectors which are used to train the composition models or lexical functions. In the final step it lists the nearest neighbours a given compound (eg: small_town) to verify the quality of the predicted compound vector. 
 
 Usage :
     
