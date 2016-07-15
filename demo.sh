@@ -17,6 +17,8 @@ count_contexts=10000
 context_window=5
 processes=8
 
+compound="small_town"
+
 printf "\nBuilding vocab\n"
 python ./src/vocab_count.py $corpus_path --unigrams $count_unigrams --bigrams $count_bigrams --contexts $count_contexts --nproc $processes
 
@@ -42,10 +44,10 @@ printf "\nCompose new compound vectors space using TENSOR matrix\n"
 python ./src/lex_functions.py TENSOR_space ./space/unigrams_space.pkl ./space/bigrams_space.pkl ./matrices/TENSOR_matrix.pkl 
 
 printf "\nNearest neighbours of a compound (predicted using ADJ matrix )\n"
-python ./src/lex_functions.py neighbours_ADJ ./space/unigrams_space.pkl small_town ./composed_space/composed_space_ADJ.pkl ./matrices/ADJ_matrices.pkl
+python ./src/lex_functions.py neighbours_ADJ ./space/unigrams_space.pkl $compound ./composed_space/composed_space_ADJ.pkl ./matrices/ADJ_matrices.pkl
 
 printf "\nNearest neighbours of a compound (predicted using TENSOR matrix )\n"
-python ./src/lex_functions.py neighbours_TENSOR ./space/unigrams_space.pkl small_town ./composed_space/composed_space_TENSOR.pkl ./matrices/TENSOR_matrix.pkl
+python ./src/lex_functions.py neighbours_TENSOR ./space/unigrams_space.pkl $compound ./composed_space/composed_space_TENSOR.pkl ./matrices/TENSOR_matrix.pkl
 
 printf "\nNearest neighbours of compound vectors (obtained from bigram_space)\n"
-python ./src/lex_functions.py neighbours_bigrams small_town ./space/bigrams_space.pkl ./space/bigrams_space.pkl
+python ./src/lex_functions.py neighbours_bigrams $compound ./space/bigrams_space.pkl ./space/bigrams_space.pkl
