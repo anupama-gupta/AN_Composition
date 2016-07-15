@@ -1,5 +1,5 @@
 # About
-To train the lexical functions,the corpus can be prepared as a text file(s), with one sentence per line. The punctuations and numbers are removed and the words are preprocessed (lemmatized). The sentence tokens are pos-tagged (Stanford PosTagger(http://nlp.stanford.edu/software/tagger.shtml) can be used ) and separated by a single space. [Here] (https://github.com/anupama-gupta/AN_Composition/blob/master/sample_sentences.txt) are few sample sentences.
+To train the lexical functions, the corpus can be prepared as a file(s) with one sentence per line. The punctuations and numbers are removed and the words are preprocessed (lemmatized). The sentence tokens are pos-tagged (Stanford PosTagger(http://nlp.stanford.edu/software/tagger.shtml) can be used ) and separated by a single space. [Here] (https://github.com/anupama-gupta/AN_Composition/blob/master/sample_sentences.txt) are few sample sentences.
 
 # Demo
 
