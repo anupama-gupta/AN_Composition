@@ -172,8 +172,8 @@ def compose_space_TENSOR (  ) :
 		noun = bigram.split('_')[1]
 	
 		predicted_bigrams.append(("predicted_ADJ_"+adj, noun, "predicted_"+bigram) )
-		# eg ( "predicted_ADJ_good", "boy" , "prredict_good_boy" ) 
-		#tens_adj -> Tensor matrix , good -> unigram, predicted_ADJ_good -> to compute ( using  tens_adj * good )
+		# eg ( "predicted_ADJ_good", "boy" , "predict_good_boy" ) 
+		#predicted_ADJ_good -> ADJ_good matrix computed above, boy -> unigram, predicted_good_boy -> to compute (predicted_ADJ_good * boy )
 	
 
 	# Predicted composition =  predicted_ADJ * noun  ( where predicted_ADJ = TENSOR * adj )
@@ -190,6 +190,8 @@ def predict_using_ADJ ( compound, ADJ_matrices, unigram_space ) :
 	noun = compound.split('_')[1]
 
 	return ADJ_matrices.compose( [("ADJ_"+adj, noun, compound)], unigram_space )
+	# eg : ( "ADJ_good", "boy", "good_boy")
+	# ADJ_good -> adjective matrix , boy -> unigram, good_boy -> to compute ( using : ADJ_good * boy )
 
 
 # Given compound eg: "good_job" , returns it's predicted vector using the equation : (TENSOR * good) * job
@@ -199,12 +201,17 @@ def predict_using_TENSOR ( compound, TENSOR_matrix, unigram_space ) :
 	noun = compound.split('_')[1]
 			
 	composed_space_1 = TENSOR_matrix.compose([("tens_adj", adj, "predicted_ADJ_"+adj)], unigram_space )
+	# eg ( "tens_adj", "good", "predicted_ADJ_good") 
+	#tens_adj -> Tensor matrix , good -> unigram, predicted_ADJ_good -> to compute ( using  tens_adj * good )
+	
 	#print composed_space_1.id2row
 	expanded_model = LexicalFunction(function_space=composed_space_1,
         intercept=TENSOR_matrix._has_intercept)
 
-	## Predicted ADJ * noun  #############
+	
 	composed_space_2 = expanded_model.compose([("predicted_ADJ_"+adj, noun, compound)], unigram_space )
+	# eg ( "predicted_ADJ_good", "boy" , "good_boy" ) 
+	#predicted_ADJ_good -> ADJ_good matrix computed above, boy -> unigram, good_boy -> to compute ( predicted_ADJ_good * boy )
 		
 	return composed_space_2
 
@@ -222,6 +229,10 @@ def neighbours_ADJ(  ) :
 	space_2 = load_space(args.function[3])
 	ADJ_matrices = load_space(args.function[4])
 
+	adj = compound.split("_")[0]
+	if( "ADJ_"+adj  not in ADJ_matrices.id2row ) :
+		print adj , " matrix not found ! "
+		return
 	composed_space = predict_using_ADJ ( compound, ADJ_matrices, unigram_space )
 	predicted_neighbours =  find_nearest(compound, composed_space, space_2 )	
 	print "\n\nPredicted neighbours :\n", predicted_neighbours
