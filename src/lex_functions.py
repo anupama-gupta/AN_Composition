@@ -144,6 +144,8 @@ def compose_space_ADJ (  ) :
 
 	# Predicted composition =>  ADJ * noun
 	composed_space = ADJ_matrices.compose( predicted_bigrams, unigram_space )
+	
+	print "Number of elements in the space : ", len(composed_space.id2row)
 	save_space(composed_space, "composed_space_ADJ" , "composed_space")
 	#print len(composed_space.id2row)
 
@@ -183,7 +185,8 @@ def compose_space_TENSOR (  ) :
 
 	# Predicted composition =  predicted_ADJ * noun  ( where predicted_ADJ = TENSOR * adj )
 	composed_space_2 = expanded_model.compose(predicted_bigrams, unigram_space ) 
-
+	
+	print "Number of elements in the space : ", len(composed_space_2.id2row)
 	save_space(composed_space_2, "composed_space_TENSOR" , "composed_space")	
 
 
@@ -262,8 +265,6 @@ def neighbours_bigrams(  ) :
 
 	predicted_neighbours =  find_nearest(compound, bigram_space, space_2 )	
 	print "\n\nPredicted neighbours : \n" , predicted_neighbours
-
-	
 
 
 if __name__ == "__main__": 
